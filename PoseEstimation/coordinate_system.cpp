@@ -10,7 +10,10 @@
 using namespace cv;
 using namespace std;
 
-
+//1 - origem
+//2- ponta do eixo x (vermelho)
+//3 - ponta do verde y
+//4 - ponta do azul z
 
 // Globals ----------------------------------------------------------------------------------------
 
@@ -18,7 +21,7 @@ int boardHeight = 5;
 int boardWidth = 7;
 Size cbSize = Size(boardHeight,boardWidth);
 
-string filename = "/home/alyssa/Área de Trabalho/esse/3DPoseEstimation/src/out_camera_data.yml";
+string filename = "/home/alyssa/out_camera_data.yml";
 
 bool doneYet = false;
 
@@ -59,7 +62,6 @@ int main()
 	vector<Point3d> boardPoints, framePoints;//guarda coordenadas xyz
 
 
-	//generate vectors for the points on the chessboard
 	for (int i=0; i<boardWidth; i++)
 	{
 		for (int j=0; j<boardHeight; j++)
@@ -97,11 +99,11 @@ int main()
 
 		 /*AQUI COMEÇA O TESTE*/
 		 /* SE CONSEGIUR SUBSTITUIR OS PONTOS do imageFramePoints, TA OK*/
-        int i;
-        for (i=0; i<imageFramePoints.size(); i++){
-            cout<< imageFramePoints[i]<<endl;
+     /*   int i;
+        for (i=0; i<imagePoints.size(); i++){
+            cout<< imagePoints[i]<<endl;
         }
-
+cout<< "\n\n\n\n\n"<<endl;*/
 
 		 //find camera orientation if the chessboard corners have been found
 		 if ( found )
@@ -130,7 +132,18 @@ int main()
 			 line(webcamImage, imageFramePoints[0], imageFramePoints[2], CV_RGB(0,255,0), 2 );
 			 line(webcamImage, imageFramePoints[0], imageFramePoints[3], CV_RGB(0,0,255), 2 );
 
+            int i;
+            for (i=0; i<imagePoints.size(); i++){
+                //cout<< imagePoints[i]<<endl;
+                circle(webcamImage, imagePoints[i], 5,  CV_RGB(255,0,0)/*, int thickness=1, int lineType=8, int shift=0*/);
+			}
 
+
+			int j;
+            for (j=0; j<boardPoints.size(); i++){
+                //cout<< imagePoints[i]<<endl;
+                circle(webcamImage, boardPoints[i], 5,  CV_RGB(150,150,0)/*, int thickness=1, int lineType=8, int shift=0*/);
+			}
 
 			 //show the pose estimation data
 			 cout << fixed << setprecision(2) << "rvec = ["
