@@ -17,8 +17,8 @@ using namespace std;
 
 // Globals ----------------------------------------------------------------------------------------
 
-int boardHeight = 5;
-int boardWidth = 7;
+int boardHeight = 9;
+int boardWidth = 6;
 Size cbSize = Size(boardHeight,boardWidth);
 
 string filename = "/home/alyssa/out_camera_data.yml";
@@ -78,7 +78,7 @@ int main()
 
 	//set up VideoCapture object to acquire the webcam feed from location 0 (default webcam location)
 	VideoCapture capture;
-	capture.open(1);
+	capture.open(0);
 	//set the capture frame size
 	capture.set(CV_CAP_PROP_FRAME_WIDTH,FRAME_WIDTH);
 	capture.set(CV_CAP_PROP_FRAME_HEIGHT,FRAME_HEIGHT);
@@ -142,7 +142,7 @@ cout<< "\n\n\n\n\n"<<endl;*/
 			int j;
             for (j=0; j<boardPoints.size(); i++){
                 //cout<< imagePoints[i]<<endl;
-                circle(webcamImage, boardPoints[i], 5,  CV_RGB(150,150,0)/*, int thickness=1, int lineType=8, int shift=0*/);
+//                circle(webcamImage, boardPoints[i], 5,  CV_RGB(150,150,0)/*, int thickness=1, int lineType=8, int shift=0*/);
 			}
 
 			 //show the pose estimation data
