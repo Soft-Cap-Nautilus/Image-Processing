@@ -17,8 +17,8 @@ using namespace std;
 
 // Globals ----------------------------------------------------------------------------------------
 
-int boardHeight = 7;
-int boardWidth = 4;
+int boardHeight = 9;
+int boardWidth = 6;
 Size cbSize = Size(boardHeight,boardWidth);
 
 string filename = "/home/alyssa/out_camera_data.yml";
