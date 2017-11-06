@@ -17,8 +17,8 @@ using namespace std;
 
 // Globals ----------------------------------------------------------------------------------------
 
-int boardHeight = 9;
-int boardWidth = 6;
+int boardHeight = 7;
+int boardWidth = 4;
 Size cbSize = Size(boardHeight,boardWidth);
 
 string filename = "/home/alyssa/out_camera_data.yml";
@@ -78,7 +78,7 @@ int main()
 
 	//set up VideoCapture object to acquire the webcam feed from location 0 (default webcam location)
 	VideoCapture capture;
-	capture.open(0);
+	capture.open(1);
 	//set the capture frame size
 	capture.set(CV_CAP_PROP_FRAME_WIDTH,FRAME_WIDTH);
 	capture.set(CV_CAP_PROP_FRAME_HEIGHT,FRAME_HEIGHT);
